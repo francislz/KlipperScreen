@@ -146,8 +146,8 @@ The MedusaHC panel appears in the main menu when Klipper has a `[medusahc]` sect
 spool assigned to that tool and one preheat button per preheat preset.
 ```ini
 [medusahc]
-# Preheat presets shown on every tool card, in this order. Comma-separated names of
-# [preheat <name>] sections; presets without an extruder temperature are skipped.
+# Preheat presets shown on every tool card, in this order: comma-separated preset
+# names. Presets without an extruder temperature are skipped.
 # A preset can set a different temperature per tool with extruder1, extruder2, ...
 # Default: every preheat preset.
 # preheat: PLA, ABS
