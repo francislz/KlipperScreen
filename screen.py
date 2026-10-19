@@ -7,6 +7,7 @@ import json
 import logging
 import os
 import pathlib
+import re
 import subprocess
 import sys
 import traceback  # noqa
@@ -384,6 +385,18 @@ class KlipperScreen(Gtk.ApplicationWindow):
             requested_updates["objects"][p] = ["value"]
         for led in self.printer.get_leds():
             requested_updates["objects"][led] = ["color_data"]
+        if "medusahc" in self.printer.config:
+            requested_updates["objects"]["medusahc"] = [
+                "current_tool",
+                "last_error",
+                "operation",
+                "sensors",
+                "tool_count",
+            ]
+            # T<n> macros carry the Spoolman spool assigned to each tool
+            for name in self.printer.data:
+                if re.match(r"^gcode_macro T\d+$", name):
+                    requested_updates["objects"][name] = ["spool_id", "color"]
 
         self._ws.api.object_subscription(requested_updates)
 

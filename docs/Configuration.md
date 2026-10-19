@@ -139,6 +139,20 @@ moonraker_port: 7125
 # sync_rate: 20
 ```
 
+## MedusaHC Options
+
+The MedusaHC panel appears in the main menu when Klipper has a `[medusahc]` section
+(the MedusaHC hotend changer). Each tool card shows the hotend temperature, the Spoolman
+spool assigned to that tool and one preheat button per preheat preset.
+```ini
+[medusahc]
+# Preheat presets shown on every tool card, in this order. Comma-separated names of
+# [preheat <name>] sections; presets without an extruder temperature are skipped.
+# A preset can set a different temperature per tool with extruder1, extruder2, ...
+# Default: every preheat preset.
+# preheat: PLA, ABS
+```
+
 ## Preheat Options
 
 !!! question "Added one the others disappeared, Is this normal?"

@@ -717,3 +717,42 @@ keyboard_box {
 .monospaced {
     font-family: monospace;
 }
+/* MedusaHC panel: one card per hotend, outlined like the AFC lanes in Mainsail */
+@define-color mhc-selected #2196f3;
+
+.mhc-status,
+.mhc-tool {
+    border: .15em solid transparent;
+    border-radius: .6em;
+    background-color: alpha(@text, 0.06);
+    padding: .3em .5em;
+}
+
+.mhc-status.mhc-selected,
+.mhc-tool.mhc-selected {
+    border-color: @mhc-selected;
+}
+
+.mhc-status.mhc-error,
+.mhc-tool.mhc-error {
+    border-color: @error;
+}
+
+.mhc-error-text {
+    color: @error;
+}
+
+.mhc-heat button {
+    border-radius: 0;
+    margin: 0;
+}
+
+.mhc-heat button:first-child {
+    border-top-left-radius: .4em;
+    border-bottom-left-radius: .4em;
+}
+
+.mhc-heat button:last-child {
+    border-top-right-radius: .4em;
+    border-bottom-right-radius: .4em;
+}

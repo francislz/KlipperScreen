@@ -271,6 +271,8 @@ class KlipperScreenConfig:
             elif section.startswith("spoolman"):
                 numbers = ("sync_rate", "spool_low_limit")
                 bools = "hide_archived"
+            elif section == "medusahc":
+                strs = ("preheat",)
             else:
                 self.errors.append(f"Section [{section}] not recognized")
 
